@@ -17,7 +17,23 @@ struct node {
 	int num;
 	struct node *next;
 };
-
+typedef struct node *lptr;
 struct node * removeEveryKthNode(struct node *head, int K) {
-	return NULL;
+	lptr p = head, l = head;
+	int c = 0;
+	if (head == NULL || K <= 1) return NULL;
+	
+	while (p != NULL)
+	{
+		c++;
+		if (c%K == 0)
+		{
+			l->next = p->next;
+
+		}
+		l = p;
+		p = p->next;
+	}
+	
+	return head;
 }
