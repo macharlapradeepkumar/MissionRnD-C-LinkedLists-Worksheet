@@ -19,6 +19,28 @@ struct node {
 	struct node *next;
 };
 
+typedef struct node *lptr;
+lptr insertend(lptr first, int x);
 struct node * numberToLinkedList(int N) {
-	return NULL;
+	int r;
+	lptr first= NULL;
+	if (N < 0){
+		N = -N;
+	}
+	if (N==0 ) 
+		first = insertend(first, N);
+	while (N != 0){
+		r = N % 10;
+	first=insertend(first, r);
+	N = N / 10;
+	} 
+	return first;
+}
+lptr insertend(lptr first, int x){
+	lptr p, t;
+	p = (lptr)malloc(sizeof(struct node));
+	p->num = x;
+	p->next = first;
+	return p;
+
 }
